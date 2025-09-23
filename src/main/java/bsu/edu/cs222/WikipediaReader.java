@@ -11,21 +11,21 @@ public class WikipediaReader {
     public static String read(String title) {
         try {
             // Build the Wikipedia API request URL
-            String encodedUrlString =
+            String encodedTitle = URLEncoder.encode(title, Charset.defaultCharset());
+            String urlString =
                     "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=" +
-                            URLEncoder.encode(title, Charset.defaultCharset()) +
+                            encodedTitle +
                             "&rvprop=timestamp|user&rvlimit=4&redirects";
 
-            // Open connection
-            URI uri = new URI(encodedUrlString);
-            URLConnection connection = uri.toURL().openConnection();
+            // Open connection using URL (not URI)
+            URLConnection connection = new java.net.URL(urlString).openConnection();
             connection.setRequestProperty("User-Agent",
                     "FirstProject/0.1 (academic use; https://example.com)");
             connection.connect();
 
             // Return the raw JSON as a string
             return new String(connection.getInputStream().readAllBytes(), Charset.defaultCharset());
-        } catch (IOException | java.net.URISyntaxException e) {
+        } catch (IOException e) {
             throw new RuntimeException("Failed to fetch article: " + title, e);
         }
     }
