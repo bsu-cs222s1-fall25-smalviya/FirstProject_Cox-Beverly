@@ -2,6 +2,8 @@ package bsu.edu.cs222;
 
 import java.util.List;
 
+// Uses StringBuilder to format revisions
+
 public class RevisionFormatter {
     public static String format(List<Revision> revisions) {
         StringBuilder sb = new StringBuilder();
