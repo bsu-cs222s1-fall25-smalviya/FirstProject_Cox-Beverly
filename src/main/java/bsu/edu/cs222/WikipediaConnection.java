@@ -7,6 +7,8 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
 
+//Mostly taken from demo
+
 public class WikipediaConnection {
 
     public static void main(String[] args) throws IOException, URISyntaxException {

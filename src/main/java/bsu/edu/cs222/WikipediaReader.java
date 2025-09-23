@@ -1,7 +1,6 @@
 package bsu.edu.cs222;
 
 import java.io.IOException;
-import java.net.URI;
 import java.net.URLEncoder;
 import java.net.URLConnection;
 import java.nio.charset.Charset;
@@ -15,7 +14,7 @@ public class WikipediaReader {
             String urlString =
                     "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=" +
                             encodedTitle +
-                            "&rvprop=timestamp|user&rvlimit=4&redirects";
+                            "&rvprop=timestamp|user&rvlimit=15&redirects";  // fetches 15 revisions
 
             // Open connection using URL (not URI)
             URLConnection connection = new java.net.URL(urlString).openConnection();
