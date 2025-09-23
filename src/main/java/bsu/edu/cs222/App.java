@@ -1,7 +1,6 @@
 package bsu.edu.cs222;
 
-//This class will operate as a 'main' class
-
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -12,8 +11,9 @@ public class App {
         String title = scanner.nextLine().trim();
 
         String json = WikipediaReader.read(title);
+        List<Revision> revisions = RevisionParser.parseRevisions(json);
 
-        System.out.println("Raw JSON from Wikipedia:");
-        System.out.println(json);
+        String formatted = RevisionFormatter.format(revisions);
+        System.out.println("Recent revisions for " + title + ":\n" + formatted);
     }
 }
