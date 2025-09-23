@@ -16,5 +16,4 @@ public class App {
         System.out.println("Raw JSON from Wikipedia:");
         System.out.println(json);
     }
-
 }
