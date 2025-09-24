@@ -138,3 +138,34 @@ START PROGRAM
     END FUNCTION
 
     FUNCTION printRawJson(jsonData)
+
+    
+#WikipediaReader.java
+
+
+    FUNCTION read(title)
+        TRY
+            ENCODE the article title for use in a URL
+
+            BUILD the Wikipedia API URL using:
+                - the encoded title
+                - format: JSON
+                - data: revisions with timestamp and user
+                - limit: 15 revisions
+                - include redirects
+
+            OPEN a connection to the URL
+            SET the User-Agent header to identify the application
+            CONNECT to Wikipedia
+
+            READ all data from the connection
+            CONVERT data to a string
+            RETURN the JSON string
+
+        CATCH any input/output error
+            THROW an error message that fetching the article failed
+        END TRY
+    END FUNCTION
+
+
+
