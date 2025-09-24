@@ -3,7 +3,6 @@
 #Vaughn
 
 #App.java 
-START PROGRAM
 
     ASK user to enter a Wikipedia article title
     READ user input and store it in variable 'title'
@@ -68,7 +67,6 @@ START PROGRAM
     END FUNCTION
 
   #RevisionParser.java
-  CLASS RevisionParser
 
     FUNCTION parseRevisions(jsonData)
         CREATE empty list called 'revisions'
