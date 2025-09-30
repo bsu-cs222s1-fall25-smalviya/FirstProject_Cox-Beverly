@@ -1,6 +1,10 @@
 # Wikipidia Revision and redirecting tracker
 
 
+# Contributors
+Vaughn Cox, Quentin Beverly
+
+
 # Project Summary
 -This program is a Java desktop application that retrieves and displays the 15 most recent revisions of chosen Wikipedia articles inside the command terminal as the program retrieves information from the Wikipedia API putting them in order. Then it places the output data information on the command line. Multiple classes are connected to make this program function as a whole.
 
@@ -17,6 +21,7 @@
 4.The last 15 edits will be displayed in reverse chronological order
 
 
+# Gui part of the program
 
 
 
