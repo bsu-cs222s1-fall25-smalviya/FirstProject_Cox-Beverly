@@ -51,7 +51,7 @@ public class UI extends Application {
     private void fetchRevisions() {
         String title = inputField.getText().trim();
         if (title.isEmpty()) {
-            outputArea.setText("Please enter an article title.");
+            showError("Input Error", "Please enter an article title.");
             return;
         }
 
@@ -77,8 +77,18 @@ public class UI extends Application {
             }
 
             outputArea.setText(builder.toString());
+
         } catch (RuntimeException e) {
-            outputArea.setText("Error: " + e.getMessage());
+            showError("Error", e.getMessage());
         }
     }
+
+    private void showError(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
 }
