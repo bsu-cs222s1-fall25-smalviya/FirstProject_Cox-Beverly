@@ -1,9 +1,8 @@
 package bsu.edu.cs222;
 
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import java.io.IOException;
+import java.net.UnknownHostException;
 import java.net.URLEncoder;
 import java.net.URLConnection;
 import java.nio.charset.Charset;
@@ -25,23 +24,13 @@ public class WikipediaReader {
                     "FirstProject/0.1 (academic use; https://example.com)");
             connection.connect();
 
-            // Read response as string
-            String jsonData = new String(connection.getInputStream().readAllBytes(), Charset.defaultCharset());
+            // Return the raw JSON as a string
+            return new String(connection.getInputStream().readAllBytes(), Charset.defaultCharset());
 
-            // Parse JSON and check for missing page
-            JsonObject root = JsonParser.parseString(jsonData).getAsJsonObject();
-            JsonObject pages = root.getAsJsonObject("query").getAsJsonObject("pages");
-            for (String pageId : pages.keySet()) {
-                JsonObject page = pages.getAsJsonObject(pageId);
-                if (page.has("missing")) {
-                    throw new RuntimeException("Wikipedia page not found for title: " + title);
-                }
-            }
-
-            return jsonData;
-
+        } catch (UnknownHostException e) {
+            throw new RuntimeException("Unable to connect to Wikipedia. Check your internet connection.", e);
         } catch (IOException e) {
-            throw new RuntimeException("Failed to fetch article: " + title, e);
+            throw new RuntimeException("Error reading data from Wikipedia for article: " + title, e);
         }
     }
 }
