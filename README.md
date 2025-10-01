@@ -1,4 +1,4 @@
-# Wikipidia Revision and redirecting tracker
+# Wikipedia Revision and redirecting tracker
 
 
 # Contributors
