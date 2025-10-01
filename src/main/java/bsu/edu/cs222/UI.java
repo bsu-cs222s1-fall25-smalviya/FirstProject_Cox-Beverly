@@ -83,12 +83,18 @@ public class UI extends Application {
         }
     }
 
-    private void showError(String title, String message) {
+    private TextArea showError(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+        return null;
+    }
+
+    public TextArea getOutputArea() {
+        return outputArea;
     }
 
 }
+
