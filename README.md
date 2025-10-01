@@ -21,7 +21,11 @@ Vaughn Cox, Quentin Beverly
 4.The last 15 edits will be displayed in reverse chronological order
 
 
-# Gui part of the program
-
+# How to run GUI section of program
+To run the UI.java part of the program, some special instructions are required
+1. Open terminal
+2. Type "./gradlew run"
+3. GUI Interface should run from there
+Due to issues with IntelliJ and JavaFX, it must be run in the terminal using Gradle.
 
 
